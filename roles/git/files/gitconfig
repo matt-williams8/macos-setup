@@ -1,0 +1,5 @@
+[user]
+        name = {{ github_username }}
+        email = 13625722+{{ github_username }}@users.noreply.github.com
+[core]
+        excludesfile = {{ user_home }}/.gitignore

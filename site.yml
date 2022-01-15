@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  vars:
+    user_home: "{{ lookup('env', 'HOME') }}"
+    github_username: matt-williams8
+  roles:
+    - git
