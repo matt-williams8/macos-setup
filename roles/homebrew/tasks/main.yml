@@ -1,0 +1,7 @@
+- name: Permanently add brew config to zsh profile
+  ansible.builtin.lineinfile:
+    path: "{{ user_home }}/.zprofile"
+    line: eval "$(/opt/homebrew/bin/brew shellenv)"
+    create: yes
+    state: present
+    

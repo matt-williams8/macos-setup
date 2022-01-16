@@ -3,5 +3,7 @@
   vars:
     user_home: "{{ lookup('env', 'HOME') }}"
     github_username: matt-williams8
+  # Roles are simply listed in alphabetical order, roles dependent on others specify this in their meta/main.yml
   roles:
     - git
+    - homebrew

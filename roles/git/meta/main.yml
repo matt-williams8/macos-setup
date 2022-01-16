@@ -1,0 +1,4 @@
+---
+dependencies:
+  # To make life easier for running the gh commands by having homebrew and its formulae correctly added to the path
+  - role: homebrew
