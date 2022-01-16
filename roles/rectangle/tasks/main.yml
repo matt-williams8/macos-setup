@@ -1,0 +1,4 @@
+- name: Install rectangle window management
+  ansible.builtin.homebrew_cask:
+    name: rectangle
+    state: present
