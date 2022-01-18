@@ -1,0 +1,5 @@
+# Settings Sync will be used to keep track of settings and installed extensions, which is why this is so bare
+- name: Install vscode
+  ansible.builtin.homebrew_cask:
+    name: visual-studio-code
+    state: present
