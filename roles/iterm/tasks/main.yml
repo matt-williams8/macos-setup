@@ -1,0 +1,4 @@
+- name: Install iterm2
+  ansible.builtin.homebrew_cask:
+    name: iterm2
+    state: present
