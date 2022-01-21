@@ -1,0 +1,14 @@
+# Recommened setup as per https://github.com/pyenv/pyenv#basic-github-checkout 2 -> zsh -> homebrew
+- name: Permanently add pyenv config to zsh profile
+  ansible.builtin.lineinfile:
+    path: "{{ user_home }}/.zprofile"
+    line: eval "$(pyenv init --path)"
+    create: yes
+    state: present
+
+- name: Permanently add pyenv config to zshrc
+  ansible.builtin.lineinfile:
+    path: "{{ user_home }}/.zshrc"
+    line: eval "$(pyenv init -)"
+    create: yes
+    state: present
