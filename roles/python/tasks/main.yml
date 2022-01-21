@@ -3,12 +3,19 @@
   ansible.builtin.lineinfile:
     path: "{{ user_home }}/.zprofile"
     line: eval "$(pyenv init --path)"
-    create: yes
     state: present
+    create: yes
 
 - name: Permanently add pyenv config to zshrc
   ansible.builtin.lineinfile:
     path: "{{ user_home }}/.zshrc"
     line: eval "$(pyenv init -)"
-    create: yes
     state: present
+    create: yes
+
+- name: Make pip installed packages available on the path
+  ansible.builtin.lineinfile:
+    path: "{{ user_home }}/.zshrc"
+    line: path=($HOME/.local/bin/ $path)
+    state: present
+    create: yes

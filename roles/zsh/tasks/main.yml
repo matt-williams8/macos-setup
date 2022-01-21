@@ -1,0 +1,7 @@
+- name: Prevent duplicate entries being added to path array
+  ansible.builtin.lineinfile:
+    path: "{{ user_home }}/.zshrc"
+    line: typeset -U path
+    state: present
+    insertbefore: BOF
+    create: yes
