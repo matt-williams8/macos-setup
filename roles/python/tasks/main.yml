@@ -6,16 +6,12 @@
     state: present
     create: yes
 
-- name: Permanently add pyenv config to zshrc
-  ansible.builtin.lineinfile:
+- name: Permanently add python utilities to path
+  ansible.builtin.blockinfile:
     path: "{{ user_home }}/.zshrc"
-    line: eval "$(pyenv init -)"
+    block: |
+      eval "$(pyenv init -)"
+      path=({{ user_home  }}/.local/bin/ $path)
     state: present
-    create: yes
-
-- name: Make pip installed packages available on the path
-  ansible.builtin.lineinfile:
-    path: "{{ user_home }}/.zshrc"
-    line: path=($HOME/.local/bin/ $path)
-    state: present
-    create: yes
+    insertafter: ^# User configuration$
+    marker: "# {mark} python configuration"

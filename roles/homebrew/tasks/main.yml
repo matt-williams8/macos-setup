@@ -4,4 +4,3 @@
     line: eval "$(/opt/homebrew/bin/brew shellenv)"
     state: present
     create: yes
-    

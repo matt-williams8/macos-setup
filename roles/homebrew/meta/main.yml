@@ -1,5 +1,0 @@
----
-dependencies:
-  # This role will be altering the zsh config, so to avoid as many possible conflicts as possible
-  # ensure the zsh config has already been applied
-  - role: zsh

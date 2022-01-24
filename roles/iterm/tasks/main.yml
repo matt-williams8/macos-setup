@@ -2,3 +2,8 @@
   ansible.builtin.homebrew_cask:
     name: iterm2
     state: present
+
+- name: Configure iterm2 profile
+  ansible.builtin.copy:
+    src: ./files/profiles.json
+    dest: "{{ user_home }}/Library/Application Support/iTerm2/DynamicProfiles"

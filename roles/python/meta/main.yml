@@ -1,5 +1,5 @@
 ---
 dependencies:
-  # This role will be altering the zsh config, so to avoid as many possible conflicts as possible
-  # ensure the zsh config has already been applied
+  # This role will be altering the zsh config. Installing oh my zsh backs up any changes to existing zsh config files,
+  # so to apply these changes to the post oh my zsh config, ensure the zsh role has already been applied.
   - role: zsh

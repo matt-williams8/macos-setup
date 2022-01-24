@@ -1,7 +1,32 @@
+- name: Install oh my zsh
+  ansible.builtin.shell:
+    cmd: /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    creates: "{{ user_home }}/.oh-my-zsh"
+
 - name: Prevent duplicate entries being added to path array
   ansible.builtin.lineinfile:
     path: "{{ user_home }}/.zshrc"
     line: typeset -U path
     state: present
     insertbefore: BOF
-    create: yes
+
+- name: Use the agnoster oh my zsh theme
+  ansible.builtin.lineinfile:
+    path: "{{ user_home }}/.zshrc"
+    line: ZSH_THEME=agnoster
+    # Only replace the non-commented line that sets the ZSH_THEME
+    regexp: ^ZSH_THEME=.*
+
+- name: Clone the powerline fonts repo to download the fonts required to support the agnoster theme
+  ansible.builtin.git:
+    repo: https://github.com/powerline/fonts
+    dest: "{{ user_home }}/src/powerline-fonts"
+
+- name: Install the powerline fonts
+  ansible.builtin.command:
+    cmd: "{{ user_home }}/src/powerline-fonts/install.sh"
+    creates: "{{ user_home }}/Library/Fonts/Go Mono for Powerline.ttf"
+
+
+
+
