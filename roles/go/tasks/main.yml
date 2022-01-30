@@ -1,0 +1,4 @@
+- name: Install go
+  ansible.builtin.homebrew:
+    name: go
+    state: present
