@@ -24,4 +24,4 @@ export PATH=$HOME/.local/bin:$PATH
 
 # Kick things off
 ansible-galaxy install -r requirements.yml
-ansible-playbook --skip-tags sdkman_privelege $HOME/src/macos-setup/site.yml
+ansible-playbook --skip-tags sdkman_privelege $HOME/src/macos-setup/macos.yml
