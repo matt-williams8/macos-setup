@@ -1,0 +1,5 @@
+---
+dependencies:
+  # sdkman's install automatically attempts to configure ~/.zshrc and there does not seem to be a way to
+  # disable that behaviour, so ensure it runs after the main zsh role has configured zsh
+  - role: zsh

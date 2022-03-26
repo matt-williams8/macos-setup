@@ -1,0 +1,9 @@
+- name: Install sdkman and java
+  ansible.builtin.include_role:
+    name: Comcast.sdkman
+  vars:
+    sdkman_install_packages:
+      - candidate: java
+        version: "{{ java_version }}"
+    sdkman_defaults:
+      java: "{{ java_version }}"

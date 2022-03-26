@@ -26,7 +26,3 @@
   ansible.builtin.command:
     cmd: "{{ user_home }}/src/powerline-fonts/install.sh"
     creates: "{{ user_home }}/Library/Fonts/Go Mono for Powerline.ttf"
-
-
-
-

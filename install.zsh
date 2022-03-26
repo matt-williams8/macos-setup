@@ -23,4 +23,5 @@ python -m pip install --user ansible
 export PATH=$HOME/.local/bin:$PATH
 
 # Kick things off
-ansible-playbook $HOME/src/macos-setup/site.yml
+ansible-galaxy install -r requirements.yml
+ansible-playbook --skip-tags sdkman_privelege $HOME/src/macos-setup/site.yml
