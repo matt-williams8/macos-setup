@@ -11,4 +11,4 @@ An ansible based "backup" of my preferred macOS dev machine setup.
 
  ## Applying changes
 
- Once the [`install.zsh`](install.zsh) script has been run once to do the initial setup/core package install, any future changes made to the playbook can be applied via `ansible-playbook --skip-tags sdkman_privelege $HOME/src/macos-setup/macos.yml`.
+ Once the [`install.zsh`](install.zsh) script has been run once to do the initial setup/core package install, any future changes made to the playbook can be applied via `ansible-playbook --skip-tags sdkman_privilege $HOME/src/macos-setup/macos.yml`.
