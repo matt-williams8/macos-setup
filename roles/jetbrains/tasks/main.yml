@@ -1,0 +1,4 @@
+- name: Install Idea Toolbox
+  ansible.builtin.homebrew_cask:
+    name: jetbrains-toolbox
+    state: present
