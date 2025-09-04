@@ -1,2 +1,5 @@
 # macOS
 .DS_Store
+
+# mise
+mise.local.toml

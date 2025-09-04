@@ -1,0 +1,22 @@
+- name: Permanently add local bin to path
+  ansible.builtin.blockinfile:
+    path: "{{ user_home }}/.zshrc"
+    block: |
+      eval "$({{ user_home }}/.local/bin/mise activate zsh)"
+      path=({{ user_home }}/.local/bin/ $path)
+    state: present
+    insertafter: ^# User configuration$
+    marker: "# {mark} mise configuration"
+
+- name: Move mise.toml to global location
+  ansible.builtin.copy:
+    src: ./files/mise.toml
+    dest: "{{ user_home }}/.config/mise.toml"
+
+- name: Trust global mise.toml
+  ansible.builtin.command:
+    cmd: mise trust "{{ user_home }}/.config/mise.toml"
+
+- name: Install mise managed tools
+  ansible.builtin.command:
+    cmd: mise install
